@@ -102,16 +102,17 @@ DROP TABLE `processo-seletivo-c6.DadosC6.Atividade`;
 DROP TABLE `processo-seletivo-c6.DadosC6.Banco_talentos`;
 
 ```
-### Apresentação de Dados no Power BI
-A seguir, foram criadas as seguintes visualizações no Power BI:
+## Apresentação de Dados no Power BI:
 
-Gráfico de Barras: Comparando as áreas de formação dos gestores com as competências.
-Gráfico de Linha: Analisando o tempo médio de promoção dos gestores no C6 Bank.
-Gráfico de Radar: Comparando as competências exigidas pelos gestores com minhas próprias habilidades (SQL, Power BI, Python).
-Considerações Finais
-Com os dados filtrados, ficou mais fácil organizar os contatos e otimizar a abordagem. As mensagens devem ser enviadas preferencialmente no período da manhã, utilizando canais como LinkedIn. Caso não haja resposta, o contato pode ser tentado por e-mail corporativo ou telefone.
+A seguir, foram criadas as seguintes visualizações no Power BI.
 
-Além disso, observei que uma engenheira de alimentos faz parte da equipe, e verifiquei suas especializações, o que pode servir como referência para futuras interações.
+## Ferramentas Utilizadas:
 
-Acesse meu Portfólio
-GitHub - Alessandra Barcelos
+- **Gráfico de Barras**: Comparando as áreas de formação dos gestores com as competências.
+- **Gráfico de Linha**: Analisando o tempo médio de promoção dos gestores no C6 Bank.
+- **Gráfico de Radar**: Comparando as competências exigidas pelos gestores com minhas próprias habilidades (SQL, Power BI, Python).
+
+## Considerações Finais: 
+
+- Com os dados filtrados, ficou mais fácil organizar os contatos e otimizar a abordagem. As mensagens devem ser enviadas preferencialmente no período da manhã, utilizando canais como LinkedIn. Caso não haja resposta, o contato pode ser tentado por e-mail corporativo ou telefone.
+- Além disso, observei que uma engenheira de alimentos faz parte da equipe, e verifiquei suas especializações, o que pode servir como referência para futuras interações.
