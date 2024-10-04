@@ -20,6 +20,27 @@ Criar um banco de dados de contatos de gestores do C6 Bank para enviar mensagens
 ### Acesso ao Armazenamento de Dados
 [Planilha Google](https://docs.google.com/spreadsheets/d/1_uBVZ5ppmRjEEwmW21UumuR-9ftvD03J2cG4NwHKjfc/edit?usp=sharing)
 
+
+# Projeto de Análise de Dados com Segurança Adicional
+
+## Tratamento de Dados Sensíveis
+
+Neste projeto, implementamos uma camada de segurança para proteger informações sensíveis, como e-mails dos usuários, utilizando criptografia SHA-256. Esta prática visa garantir a privacidade dos dados e evitar que informações pessoais sejam expostas diretamente.
+
+### Implementação da Criptografia
+
+A criptografia foi aplicada diretamente no banco de dados utilizando SQL. Abaixo estão exemplos de como os e-mails foram criptografados. Suponhamos que o e-mail siga o formato `{last}{first}@c6bank.com.br`:
+
+``sql
+-- Exemplo de criptografia de e-mail com SHA-256
+-- Usuário: João Silva -> E-mail: silvaj@c6bank.com.br
+UPDATE usuarios
+SET email = SHA2(CONCAT(LOWER(last), LOWER(first), '@c6bank.com.br'), 256);
+
+-- Inserindo um novo usuário com o e-mail criptografado
+INSERT INTO usuarios (nome, email)
+VALUES ('João Silva', SHA2(CONCAT('silva', 'j', '@c6bank.com.br'), 256));
+
 ## Código SQL Utilizado
 
 ### 1. Conversão de Tabelas Google Sheets para BigQuery
