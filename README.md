@@ -42,8 +42,24 @@ INSERT INTO usuarios (nome, email)
 VALUES ('João Silva', SHA2(CONCAT('silva', 'j', '@c6bank.com.br'), 256));
 
 ## Código SQL Utilizado
+### 1. Implementação da Criptografia
+```sql
 
-### 1. Conversão de Tabelas Google Sheets para BigQuery
+
+-- Atualiza o campo 'email' de todos os usuários na tabela, aplicando SHA-256
+UPDATE usuarios
+SET email = SHA2(CONCAT(LOWER(last), LOWER(first), '@c6bank.com.br'), 256);
+
+-- Caso esteja inserindo um novo usuário com e-mail criptografado
+-- Exemplo para João Silva, onde 'first' é 'j' e 'last' é 'silva'
+INSERT INTO usuarios (first, last, email)
+VALUES ('j', 'silva', SHA2(CONCAT('silva', 'j', '@c6bank.com.br'), 256));
+
+
+
+
+
+### 2. Conversão de Tabelas Google Sheets para BigQuery
 ```sql
 CREATE OR REPLACE TABLE `processo-seletivo-c6.DadosC6.Formacaonovatabela` AS
 SELECT * FROM `processo-seletivo-c6.DadosC6.Formacao`;
@@ -55,7 +71,7 @@ CREATE OR REPLACE TABLE `processo-seletivo-c6.DadosC6.Perfil_do_Gestornovatabela
 SELECT * FROM `processo-seletivo-c6.DadosC6.Perfil_do_Gestor`;
 
 ```
-### 2.Consulta Principal para Contato e Verificação de Atividades
+### 3.Consulta Principal para Contato e Verificação de Atividades
 ```sql
 SELECT
   p.First_Name,
@@ -77,7 +93,7 @@ JOIN `processo-seletivo-c6.DadosC6.Interacoes_e_contatosonovatabela` AS i
   ON p.Gestor_ID = i.Gestor_ID;
 
 ```
-### 3.Contagem de Gestores por Cargo
+### 4.Contagem de Gestores por Cargo
 ```sql
 SELECT
   UPPER(p.Cargo) AS Cargo_Uppercase,
@@ -89,7 +105,7 @@ GROUP BY Cargo_Uppercase
 ORDER BY Total_Gestores_por_cargo ASC;
 
 ```
-### 4. Atualização de Comentários Após Contato com Gestores
+### 5. Atualização de Comentários Após Contato com Gestores
 ```sql
 UPDATE `processo-seletivo-c6.DadosC6.Interacoes_e_contatosonovatabela`
 SET Comentarios = 'Aguardando resposta'
